@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Resources
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.CardView
@@ -148,8 +149,8 @@ class MainActivity : Activity() {
             }
 
 
-    class CAdapter(val context: MainActivity, private val list: List<AppInfoMi>) : RecyclerView.Adapter<CAdapter.CViewHolder>() {
-        fun getFakedInstall(isColor: Boolean): Int = when (context.fakeInstalled) {
+    class CAdapter(private val context: MainActivity, private val list: List<AppInfoMi>) : RecyclerView.Adapter<CAdapter.CViewHolder>() {
+        private fun getFakedInstall(isColor: Boolean): Int = when (context.fakeInstalled) {
             true -> if (isColor) Color.parseColor("#FFA31A") else if(context.fakeModule) R.string.stateOnClickToOff else R.string.stateOnClickTryToOff
             false -> if (isColor) Color.GREEN else R.string.stateOn
         }
@@ -224,7 +225,8 @@ class MainActivity : Activity() {
                             padding = dip(8)
                             cardElevation = 8f
                             id = IDS.cardID
-                            foreground = resources.getDrawable(outValue.resourceId, context.theme)
+                            @Suppress("DEPRECATION")
+                            foreground =  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) resources.getDrawable(outValue.resourceId, context.theme) else resources.getDrawable(outValue.resourceId)
                             relativeLayout {
                                 textView {
                                     padding = dip(8)
