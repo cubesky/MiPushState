@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">小米推送组件检查器</string>
+    <string name="stateOn">已启用</string>
+    <string name="stateOff">已禁用</string>
+    <string name="descr">已启用高级框架或伪装\n点击已启用推送组件的软件\n会关闭他们的内建推送组件</string>
+    <string name="stateOnClickToOff">已启用，点击打开并禁用</string>
+    <string name="stateFrameworkOn">框架，已启用</string>
+    <string name="stateFrameworkOff">框架，已禁用</string>
+    <string name="stateOnClickTryToOff">已启用，尝试打开并禁用</string>
+    <string name="descr_try">已启用框架或框架伪装\n点击已启用推送组件的软件\n会关闭他们的内建推送组件</string>
+</resources>
